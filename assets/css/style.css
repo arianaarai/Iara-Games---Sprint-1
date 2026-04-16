@@ -1,3 +1,9 @@
+/*
+   Iara Games — Grid + HTML semântico + glassmorphism (Sprint 02).
+   Vidro: translúcido (#ffffff1a / rgba) + backdrop-filter blur(10px) nos blocos indicados.
+   Sem: clamp(), min()/max() como funções CSS, aspect-ratio, focus-visible.
+*/
+
 :root {
     --color-text: #e2e8f0;
     --color-verde-marinho: #67e8f9;
@@ -5,237 +11,865 @@
     --color-verde-musgo: #22c55e;
     --color-preto-cinza: #ffffff1a;
     --color-diamante: #0c8b8b;
-    --font-text: "Atkinson Hyperlegible", sans-serif;
-    --font-titulo: "Poppins", sans-serif;
+    --font-display: "Russo One", sans-serif;
+    --font-subtitle: "Poppins", sans-serif;
+    --font-body: "Atkinson Hyperlegible", sans-serif;
+    --content-max: 1200px;
+    --radius-pill: 25px;
+    --radius-card: 15px;
+    --transition: 0.3s ease;
+    --shadow-glow-marinho: 0 0 24px rgba(103, 232, 249, 0.45);
+    --shadow-glow-musgo: 0 0 20px rgba(34, 197, 94, 0.55);
+    --shadow-glow-diamante: 0 0 18px rgba(12, 139, 139, 0.5);
+    --glass-blur: blur(10px);
 }
 
 /* RESET */
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html { scroll-behavior: smooth;}
-
-a {text-decoration: none;}
-
-button {
-    padding: 12px 25px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    margin-top: 20px;
-    font-weight: bold;
-    color: var(--color-preto);
-    background: var(--color-verde-musgo);
-    transition: 0.3s;
-}
-
-button:hover {
-    box-shadow: 0 0 15px var(--color-verde-musgo);
-    transform: scale(1.05);
-}
-
-
-/* BODY */
 body {
-    font-family: var(--font-text);
-    background: linear-gradient(180deg, var(--color-preto), var(--color-diamante));
+    font-family: var(--font-body);
+    background: linear-gradient(180deg, var(--color-preto) 0%, #0a1628 45%, var(--color-diamante) 100%);
+    background-attachment: fixed;
     color: var(--color-text);
+    line-height: 1.5;
+    min-height: 100vh;
+    position: relative;
 }
 
-/* HEADER */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
+/* Brilho suave (gradientes radiais do material de background) */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 0;
+    background:
+        radial-gradient(ellipse 70% 50% at 15% 20%, rgba(103, 232, 249, 0.05) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 45% at 85% 60%, rgba(12, 139, 139, 0.07) 0%, transparent 50%);
 }
 
-header h1 {
-    color: var(--color-verde-marinho);
-    font-family: var(--font-titulo);
+main,
+.site-header,
+.site-footer {
+    position: relative;
+    z-index: 1;
 }
 
-nav ul {
-    display: flex;
-    gap: 50px;
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
     list-style: none;
 }
 
-nav a {
-    color: var(--color-text);
-    transition: 0.3s;
-    font-size: 25px;
+/* Skip link (acessível com Tab) */
+.skip-link {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
-nav a:hover {
+.skip-link:focus {
+    position: fixed;
+    left: 1rem;
+    top: 1rem;
+    z-index: 10000;
+    width: auto;
+    height: auto;
+    margin: 0;
+    clip: auto;
+    overflow: visible;
+    white-space: normal;
+    padding: 0.65rem 1.1rem;
+    background: var(--color-verde-musgo);
+    color: var(--color-preto);
+    font-family: var(--font-subtitle);
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-glow-musgo);
+    outline: none;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* HEADER — glassmorphism (doc: blur 10px + camada translúcida) */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem 1.5rem;
+    padding: 1rem 2.5rem;
+    background: rgba(2, 6, 23, 0.72);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    border-bottom: 1px solid rgba(103, 232, 249, 0.12);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.4),
+        inset 0 -1px 0 rgba(12, 139, 139, 0.35);
+}
+
+.site-header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--color-diamante) 25%,
+        var(--color-verde-marinho) 50%,
+        var(--color-diamante) 75%,
+        transparent 100%
+    );
+    opacity: 0.9;
+    pointer-events: none;
+}
+
+.site-header__mark {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.site-header__tagline {
+    font-family: var(--font-subtitle);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(103, 232, 249, 0.75);
+    max-width: 22rem;
+    line-height: 1.3;
+}
+
+.site-header__brand,
+.site-header__brand:visited {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
     color: var(--color-verde-marinho);
+    letter-spacing: 0.02em;
+    transition: color var(--transition), text-shadow var(--transition);
 }
 
-div a {
-    color: var(--color-text);
-    transition: 0.3s;
-    font-size: 25px;
+.site-header__brand:hover {
+    color: #7ef0ff;
+    text-shadow: 0 0 20px rgba(103, 232, 249, 0.6);
 }
 
-div a:hover {
-    color: var(--color-verde-marinho);
+.site-header__brand:focus {
+    outline: 2px solid var(--color-verde-marinho);
+    outline-offset: 4px;
+    border-radius: 4px;
 }
 
-
-/* SECTIONS */
-section {
-    padding: 60px 40px;
-}
-
-section h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: var(--color-verde-marinho);
-    font-size: 80px;
+.site-header__nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
     justify-content: center;
+}
+
+.site-header__nav a,
+.site-header__nav a:visited {
+    font-family: var(--font-subtitle);
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--color-text);
+    transition: color var(--transition), text-shadow var(--transition);
+}
+
+.site-header__nav a:hover {
+    color: var(--color-verde-marinho);
+    text-shadow: 0 0 12px rgba(103, 232, 249, 0.4);
+}
+
+.site-header__nav a:focus {
+    outline: 2px solid var(--color-verde-marinho);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+.site-header__actions a,
+.site-header__actions a:visited {
+    font-family: var(--font-subtitle);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--color-text);
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-pill);
+    border: 1px solid transparent;
+    transition: color var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+.site-header__actions a:hover {
+    color: var(--color-verde-marinho);
+    border-color: var(--color-preto-cinza);
+    box-shadow: var(--shadow-glow-marinho);
+}
+
+.site-header__actions a:focus {
+    outline: 2px solid var(--color-verde-marinho);
+    outline-offset: 4px;
+}
+
+/* LAYOUT — seções */
+.section {
+    padding: 4.5rem 2.5rem;
+}
+
+.section.jogos,
+.section.ofertas {
+    border-top: 1px solid rgba(103, 232, 249, 0.08);
+    background: linear-gradient(180deg, rgba(2, 6, 23, 0.12) 0%, transparent 45%);
+}
+
+.section__inner {
+    max-width: var(--content-max);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section__inner--narrow {
+    max-width: 42rem;
+}
+
+.section__title {
+    position: relative;
+    font-family: var(--font-display);
+    font-size: 3.1rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 0.5rem;
+    color: var(--color-verde-marinho);
+    text-shadow: 0 0 28px rgba(103, 232, 249, 0.25);
+    line-height: 1.15;
+}
+
+.section__title::after {
+    content: "";
+    display: block;
+    width: 10rem;
+    max-width: 55vw;
+    height: 4px;
+    margin: 0.85rem auto 0;
+    border-radius: 4px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--color-diamante) 35%,
+        var(--color-verde-marinho) 50%,
+        var(--color-diamante) 65%,
+        transparent
+    );
+    box-shadow: 0 0 16px rgba(103, 232, 249, 0.35);
+}
+
+.section__cta {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Grid (repeat, minmax, auto-fit — material Grid) */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.grid--games {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.grid--offers {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+/* Itens do grid com a mesma altura (cards alinhados) */
+.grid--games > li,
+.grid--offers > li {
     display: flex;
 }
 
-section div {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+.game-card,
+.offer-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex: 1;
 }
 
 /* HERO */
 .hero {
-    height: 75vh;
+    position: relative;
+    overflow: hidden;
+    min-height: 75vh;
+    max-height: 720px;
     display: flex;
     align-items: center;
-    padding: 40px;
-    background: url(../images/lagoa\ mistica.png) no-repeat center/cover;
-}
-
-.hero h2{
-    font-size: 80px;
-    font-weight: bold;
-    color: var(--color-verde-musgo);
-    font-family: var(--font-titulo);
-}
-
-/* CARDS */
-
-section div div a {
-    background: var(--color-preto-cinza);
-    border-radius: 15px;
-    padding: 15px;
-    backdrop-filter: blur(10px);
-    transition: 0.3s;
-}
-
-section div div a:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 15px var(--color-diamante);
-}
-
-section img {
+    justify-content: center;
     width: 100%;
-    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 3.5rem 3rem 4.5rem;
+    background: url("../images/lagoa mistica.png") no-repeat center;
+    background-size: cover;
 }
 
-/* JOGOS */
-
-.jogos p{
-    font-size: 30px;
-    color: var(--color-verde-musgo);
-    font-weight: bold;
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    background: linear-gradient(
+        115deg,
+        rgba(2, 6, 23, 0.52) 0%,
+        rgba(2, 6, 23, 0.28) 48%,
+        rgba(12, 139, 139, 0.2) 100%
+    );
+    pointer-events: none;
 }
 
-/* OFERTAS */
-.ofertas h3 {
-    margin-top: 10px;
-    color: var(--color-verde-musgo);
-    font-size: 30px;
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(
+        ellipse 110% 90% at 50% 36%,
+        transparent 28%,
+        rgba(2, 6, 23, 0.28) 100%
+    );
 }
 
-.ofertas p {
-    font-size: 19px;
-}
-
-.ofertas p:last-child {
-    color: var(--color-verde-musgo);
-    font-weight: bold;
-    font-size: 30px;
-}
-
-/* INFO */
-.info {
+.hero__inner {
+    position: relative;
+    z-index: 1;
     display: flex;
-    justify-content: space-around;
-    text-align: center;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    max-width: var(--content-max);
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.25rem 2.25rem 2.25rem 2.5rem;
+    background: rgba(2, 6, 23, 0.55);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    border-radius: var(--radius-card);
+    border: 1px solid rgba(103, 232, 249, 0.22);
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
-
-/* FOOTER */
-footer {
-    text-align: center;
-    padding: 20px;
-    border-top: 1px solid var(--color-preto-cinza);
+.hero__inner::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 1rem;
+    bottom: 1rem;
+    width: 4px;
+    border-radius: 4px;
+    background: linear-gradient(180deg, var(--color-verde-marinho), var(--color-diamante));
+    box-shadow: 0 0 14px rgba(103, 232, 249, 0.45);
 }
 
-footer div {
-    margin-bottom: 10px;
+.hero__badge {
+    align-self: flex-start;
+    margin: 0;
+    font-family: var(--font-subtitle);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-verde-marinho);
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    border: 1px solid rgba(103, 232, 249, 0.45);
+    background: linear-gradient(135deg, rgba(12, 139, 139, 0.35), rgba(2, 6, 23, 0.6));
+    box-shadow: 0 0 20px rgba(12, 139, 139, 0.25);
 }
 
-footer a {
-    margin: 0 10px;
+.hero__title {
+    font-family: var(--font-display);
+    font-size: 2.85rem;
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--color-verde-musgo);
+    text-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.9),
+        0 2px 16px rgba(0, 0, 0, 0.75),
+        0 0 28px rgba(34, 197, 94, 0.4);
+    margin: 0;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
-footer a:hover {
+.hero__lede {
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    line-height: 1.55;
+    margin: 0;
+    max-width: 100%;
+    color: #f8fafc;
+    text-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.95),
+        0 2px 12px rgba(0, 0, 0, 0.65);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+/* Só em telas largas o título fica em uma linha; em telas menores quebra e não estoura */
+@media (min-width: 1100px) {
+    .hero__title {
+        white-space: nowrap;
+    }
+}
+
+/* Faixa de transição hero → conteúdo (só HTML + gradiente, sem SVG) */
+.hero__wave {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    height: 56px;
+    pointer-events: none;
+    background: linear-gradient(
+        to bottom,
+        rgba(2, 6, 23, 0) 0%,
+        rgba(2, 6, 23, 0.25) 20%,
+        rgba(2, 6, 23, 0.65) 55%,
+        var(--color-preto) 100%
+    );
+}
+
+/* Cards — jogos */
+.game-card__link {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1rem;
+    background: var(--color-preto-cinza);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    border-radius: var(--radius-card);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.game-card__link::before {
+    content: "";
+    position: absolute;
+    left: 0.75rem;
+    right: 0.75rem;
+    top: 0.65rem;
+    height: 3px;
+    border-radius: 3px;
+    opacity: 0.65;
+    background: linear-gradient(90deg, transparent, var(--color-diamante), var(--color-verde-marinho), transparent);
+    pointer-events: none;
+}
+
+.game-card__link:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: var(--shadow-glow-diamante);
+    border-color: rgba(103, 232, 249, 0.25);
+}
+
+.game-card__link:focus {
+    outline: 2px solid var(--color-verde-marinho);
+    outline-offset: 3px;
+}
+
+.game-card__link img {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: center;
+    flex-shrink: 0;
+}
+
+.game-card__title {
+    font-family: var(--font-subtitle);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 0.85rem;
+    color: var(--color-verde-musgo);
+}
+
+/* Cards — ofertas */
+.offer-card__link {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1rem;
+    background: var(--color-preto-cinza);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    border-radius: var(--radius-card);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.offer-card__link::before {
+    content: "";
+    position: absolute;
+    left: 0.75rem;
+    right: 0.75rem;
+    top: 0.65rem;
+    height: 3px;
+    border-radius: 3px;
+    opacity: 0.65;
+    background: linear-gradient(90deg, transparent, var(--color-diamante), var(--color-verde-marinho), transparent);
+    pointer-events: none;
+}
+
+.offer-card__link:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: var(--shadow-glow-diamante);
+    border-color: rgba(103, 232, 249, 0.25);
+}
+
+.offer-card__link:focus {
+    outline: 2px solid var(--color-verde-marinho);
+    outline-offset: 3px;
+}
+
+.offer-card__link img {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: center;
+    flex-shrink: 0;
+}
+
+.offer-card__title {
+    font-family: var(--font-subtitle);
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-top: 0.75rem;
+    color: var(--color-verde-musgo);
+}
+
+.offer-card__discount {
+    font-family: var(--font-subtitle);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 0.35rem;
     color: var(--color-verde-marinho);
 }
 
-/* --- RESPONSIVIDADE (MEDIA QUERY) --- */
+.offer-card__price-old {
+    font-size: 1rem;
+    opacity: 0.85;
+    margin-top: 0.25rem;
+}
 
+.offer-card__price-new {
+    font-family: var(--font-subtitle);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 0.35rem;
+    color: var(--color-verde-musgo);
+}
+
+/* Botões */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.75rem;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-subtitle);
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition);
+}
+
+.btn--primary {
+    color: var(--color-preto);
+    background: var(--color-verde-musgo);
+}
+
+.btn--primary:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-glow-musgo);
+}
+
+.btn--primary:focus {
+    outline: none;
+    box-shadow: var(--shadow-glow-musgo), 0 0 0 3px var(--color-preto), 0 0 0 5px var(--color-verde-marinho);
+}
+
+.btn--secondary {
+    color: var(--color-text);
+    background: rgba(2, 6, 23, 0.4);
+    border-color: var(--color-preto-cinza);
+}
+
+.btn--secondary:hover {
+    border-color: rgba(103, 232, 249, 0.45);
+    color: var(--color-verde-marinho);
+    box-shadow: var(--shadow-glow-marinho);
+    transform: translateY(-2px);
+}
+
+.btn--secondary:focus {
+    outline: none;
+    box-shadow: var(--shadow-glow-marinho), 0 0 0 3px var(--color-preto), 0 0 0 5px var(--color-verde-musgo);
+}
+
+.info__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+/* FOOTER */
+.site-footer {
+    margin-top: auto;
+    padding: 2rem 2.5rem;
+    text-align: center;
+    background: rgba(2, 6, 23, 0.72);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    border-top: 1px solid var(--color-preto-cinza);
+}
+
+.site-footer__social ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.site-footer__social a,
+.site-footer__social a:visited {
+    font-family: var(--font-subtitle);
+    font-size: 1rem;
+    color: var(--color-text);
+    transition: color var(--transition), text-shadow var(--transition);
+}
+
+.site-footer__social a:hover {
+    color: var(--color-verde-marinho);
+    text-shadow: 0 0 12px rgba(103, 232, 249, 0.45);
+}
+
+.site-footer__social a:focus {
+    outline: 2px solid var(--color-verde-marinho);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+.site-footer__tagline {
+    font-family: var(--font-subtitle);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: rgba(103, 232, 249, 0.8);
+    margin-bottom: 0.75rem;
+}
+
+.site-footer__copy {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+/* Título do hero: reduz em telas médias para continuar numa linha só */
+@media (max-width: 1100px) {
+    .hero__title {
+        font-size: 2.35rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .hero__title {
+        font-size: 2rem;
+    }
+}
+
+/* Responsivo — tamanhos menores (substitui clamp) */
 @media (max-width: 768px) {
-    
-    section h2, 
-    .hero h2 {
-        font-size: 40px; 
+    .site-header {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1.25rem 1.25rem;
+    }
+
+    .site-header__mark {
         text-align: center;
+        align-items: center;
     }
 
-    
-    header {
-        flex-direction: column; 
-        gap: 20px;
-        padding: 20px;
+    .site-header__tagline {
+        max-width: none;
     }
 
-    nav ul {
-        gap: 20px; 
-        flex-wrap: wrap; 
+    .site-header__brand {
+        font-size: 1.35rem;
+    }
+
+    .site-header__nav ul {
+        gap: 1.25rem;
         justify-content: center;
     }
 
-    nav a, 
-    div a {
-        font-size: 18px; 
+    .site-header__nav a,
+    .site-header__actions a {
+        font-size: 1.125rem;
     }
 
-    
-    section {
-        padding: 40px 20px; 
+    .site-header__actions {
+        text-align: center;
+    }
+
+    .section {
+        padding: 2.5rem 1.25rem;
+    }
+
+    .section__title {
+        font-size: 1.75rem;
+        margin-bottom: 1.75rem;
+    }
+
+    .section__title::after {
+        width: 8rem;
+    }
+
+    .section__cta {
+        margin-top: 1.5rem;
     }
 
     .hero {
-        height: 50vh; 
-        justify-content: center;
+        min-height: 50vh;
+        max-height: none;
+        padding: 2rem 1rem 3.5rem;
+    }
+
+    .hero__inner {
+        align-items: center;
+        text-align: center;
+        padding: 1.25rem 1rem;
+    }
+
+    .hero__inner::before {
+        left: 50%;
+        transform: translateX(-50%);
+        top: auto;
+        bottom: 0.75rem;
+        width: 70%;
+        max-width: 12rem;
+        height: 4px;
+        background: linear-gradient(90deg, transparent, var(--color-verde-marinho), var(--color-diamante), transparent);
+        box-shadow: none;
+    }
+
+    .hero__badge {
+        align-self: center;
+        white-space: normal;
+        max-width: 100%;
+        line-height: 1.35;
         text-align: center;
     }
 
-    /* Ajustando os parágrafos que estavam muito grandes */
-    .jogos p,
-    .ofertas h3,
-    .ofertas p:last-child {
-        font-size: 22px;
+    .hero__title {
+        font-size: 1.75rem;
+        white-space: normal;
+        max-width: 100%;
+    }
+
+    .hero__lede {
+        font-size: 1rem;
+        white-space: normal;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .game-card__link img,
+    .offer-card__link img {
+        height: 160px;
+    }
+
+    .game-card__title {
+        font-size: 1.375rem;
+    }
+
+    .offer-card__title {
+        font-size: 1.25rem;
+    }
+
+    .offer-card__price-new {
+        font-size: 1.35rem;
+    }
+}
+
+/* Telas muito estreitas: uma coluna nos grids para não estourar a largura */
+@media (max-width: 520px) {
+    .grid,
+    .grid--games,
+    .grid--offers {
+        grid-template-columns: 1fr;
     }
 }

@@ -3,30 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iara Games</title>
-
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-
+    <title>Iara Games — Jogos brasileiros independentes</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Russo+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
 </head>
+<body>
+    <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 
-
-<body><!-- HEADER -->
-    <header>
-        <div>
-            <h1>Iara Games</h1>
+    <header class="site-header">
+        <div class="site-header__mark">
+            <a class="site-header__brand" href="./index.html">Iara Games</a>
+            <p class="site-header__tagline">Profundezas amazônicas · Indies nacionais</p>
         </div>
-
-        <nav>
+        <nav class="site-header__nav" aria-label="Principal">
             <ul>
                 <li><a href="./pages/loja.html">Loja</a></li>
                 <li><a href="./pages/biblioteca.html">Biblioteca</a></li>
@@ -34,130 +25,130 @@
                 <li><a href="./pages/suporte.html">Suporte</a></li>
             </ul>
         </nav>
-
-        <div>
+        <div class="site-header__actions">
             <a href="./pages/login.html">Login</a>
         </div>
     </header>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div>
-            <h2>Encante-se com os Melhores jogos Brasileiros!</h2>
-        </div>
-    </section>
-
-    <!-- JOGOS -->
-    <section class="jogos">
-        <h2>Lançamentos</h2>
-
-        <div>
-            <div>
-                <a href="">
-                <img src="./assets/images/ff4p9vizhz231.png" alt="Aventura selvagem">
-                <p>Aventura Selvagem</p>
-                </a>
+    <main id="conteudo">
+        <section class="hero" aria-labelledby="hero-heading">
+            <div class="hero__inner">
+                <p class="hero__badge">O coração dos jogos brasileiros</p>
+                <h1 id="hero-heading" class="hero__title">Encante-se com os melhores jogos brasileiros</h1>
+                <p class="hero__lede">Descubra indies nacionais numa experiência imersiva — visual, fluida e feita para quem valoriza o que é feito aqui.</p>
             </div>
+            <div class="hero__wave" aria-hidden="true"></div>
+        </section>
 
-            <div>
-                <a href="">
-                <img src="./assets/images/ff4p9vizhz231.png" alt="Mistérios so Sol">
-                <p>Mistérios do Sol</p>
-                </a>
+        <section class="section jogos" aria-labelledby="lancamentos-heading">
+            <div class="section__inner">
+                <h2 id="lancamentos-heading" class="section__title">Lançamentos</h2>
+                <ul class="grid grid--games">
+                    <li>
+                        <article class="game-card">
+                            <a class="game-card__link" href="#">
+                                <img src="./assets/images/vandesart-lily-pads-9380127.jpg" alt="Capa do jogo Aventura Selvagem" width="400" height="225">
+                                <h3 class="game-card__title">Aventura Selvagem</h3>
+                            </a>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="game-card">
+                            <a class="game-card__link" href="#">
+                                <img src="./assets/images/iara.jpg" alt="Capa do jogo Mistérios do Sol" width="400" height="225">
+                                <h3 class="game-card__title">Mistérios do Sol</h3>
+                            </a>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="game-card">
+                            <a class="game-card__link" href="#">
+                                <img src="./assets/images/10142134.jpg" alt="Capa do jogo Reino Encantado" width="400" height="225">
+                                <h3 class="game-card__title">Reino Encantado</h3>
+                            </a>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="game-card">
+                            <a class="game-card__link" href="#">
+                                <img src="./assets/images/ff4p9vizhz231.png" alt="Capa do jogo Corrida Maluca" width="400" height="225">
+                                <h3 class="game-card__title">Corrida Maluca</h3>
+                            </a>
+                        </article>
+                    </li>
+                </ul>
+                <p class="section__cta">
+                    <a class="btn btn--primary" href="#">Ver todos</a>
+                </p>
             </div>
+        </section>
 
-            <div>
-                <a href="">
-                <img src="./assets/images/ff4p9vizhz231.png" alt="Reino Encantado">
-                <p>Reino Encantado</p>
-                </a>
+        <section class="section ofertas" aria-labelledby="ofertas-heading">
+            <div class="section__inner">
+                <h2 id="ofertas-heading" class="section__title">Melhores ofertas</h2>
+                <ul class="grid grid--offers">
+                    <li>
+                        <article class="offer-card">
+                            <a class="offer-card__link" href="#">
+                                <img src="./assets/images/corpo da sereia.jpeg" alt="Capa do jogo RPG em promoção" width="400" height="225">
+                                <h3 class="offer-card__title">RPG</h3>
+                                <p class="offer-card__discount" aria-label="Desconto">−50%</p>
+                                <p class="offer-card__price-old">De R$&nbsp;89,90</p>
+                                <p class="offer-card__price-new">Por R$&nbsp;44,90</p>
+                            </a>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="offer-card">
+                            <a class="offer-card__link" href="#">
+                                <img src="./assets/images/rabo da sereia.jpeg" alt="Capa do jogo Sombras da Floresta" width="400" height="225">
+                                <h3 class="offer-card__title">Sombras da Floresta</h3>
+                                <p class="offer-card__discount" aria-label="Desconto">−40%</p>
+                                <p class="offer-card__price-old">De R$&nbsp;149,90</p>
+                                <p class="offer-card__price-new">Por R$&nbsp;89,90</p>
+                            </a>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="offer-card">
+                            <a class="offer-card__link" href="#">
+                                <img src="./assets/images/lagoa mistica.png" alt="Capa do jogo Corrida Florestal" width="400" height="225">
+                                <h3 class="offer-card__title">Corrida Florestal</h3>
+                                <p class="offer-card__discount" aria-label="Desconto">−30%</p>
+                                <p class="offer-card__price-old">De R$&nbsp;199,90</p>
+                                <p class="offer-card__price-new">Por R$&nbsp;139,90</p>
+                            </a>
+                        </article>
+                    </li>
+                </ul>
+                <p class="section__cta">
+                    <a class="btn btn--primary" href="#">Aproveite</a>
+                </p>
             </div>
+        </section>
 
-            <div>
-                <a href="">
-                <img src="./assets/images/ff4p9vizhz231.png" alt="Corrida Maluca">
-                <p>Corrida Maluca</p>
-                </a>
+        <section class="section info" aria-labelledby="destaques-heading">
+            <div class="section__inner section__inner--narrow">
+                <h2 id="destaques-heading" class="visually-hidden">Destaques</h2>
+                <div class="info__actions">
+                    <a class="btn btn--secondary" href="#">Novidades</a>
+                    <a class="btn btn--secondary" href="#">Mais vendidos</a>
+                </div>
             </div>
-        </div>
+        </section>
+    </main>
 
-        <a href="">
-            <button>Ver Todos</button>
-        </a>
-    </section>
-
-    <!-- OFERTAS -->
-    <section class="ofertas">
-        <h2>Melhores Ofertas</h2>
-
-        <div>
-
-            <div>
-                <a href="">
-                <img src="./assets/images/ff4p9vizhz231.png" alt="RPG">
-                <h3>RPG</h3>
-                <p>-50%</p>
-                <p>De R$89,90</p>
-                <p>Por R$44,90</p>
-                </a>
-            </div>
-
-            <div>
-                <a href="">
-                <img src="./assets/images/ff4p9vizhz231.png" alt="Sombras da Floresta">
-                <h3>Sombras da Floresta</h3>
-                <p>-40%</p>
-                <p>De R$149,90</p>
-                <p>Por R$89,90</p>
-                </a>
-            </div>
-
-            <div>
-                <a href="">
-                <img src="./assets/images/ff4p9vizhz231.png" alt="Corrida Florestal">
-                <h3>Corrida Florestal</h3>
-                <p>-30%</p>
-                <p>De R$199,90</p>
-                <p>Por R$139,90</p>
-                </a>
-            </div>
-
-        </div>
-
-        <a href="">
-            <button>Aproveite</button>
-        </a>
-    </section>
-
-    <!-- INFO -->
-    <section class="info">
-        <div>
-            <a href="">
-                <button>Novidades</button>
-            </a>
-        </div>
-
-        <div>
-            <a href="">
-                <button>Mais vendidos</button>
-            </a>
-        </div>
-
-
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div>
-            <a href="">Facebook</a>
-            <a href="">Twitter(X)</a>
-            <a href="">Instagram</a>
-            <a href="">YouTube</a>
-        </div>
-
-        <p>© Iara Games. Todos os direitos reservados.</p>
+    <footer class="site-footer">
+        <nav class="site-footer__social" aria-label="Redes sociais">
+            <ul>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter (X)</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">YouTube</a></li>
+            </ul>
+        </nav>
+        <p class="site-footer__tagline">Consumo digital · Visibilidade para quem cria aqui</p>
+        <p class="site-footer__copy">© Iara Games. Todos os direitos reservados.</p>
     </footer>
-
-    
 </body>
 </html>
