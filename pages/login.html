@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar — Iara Games</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+    <header class="site-header">
+        <div class="site-header__mark">
+            <a class="site-header__brand" href="../index.html">Iara Games</a>
+            <p class="site-header__tagline">Profundezas amazônicas · Indies nacionais</p>
+        </div>
+        <nav class="site-header__nav" aria-label="Principal">
+            <ul>
+                <li><a href="./loja.html">Loja</a></li>
+                <li><a href="./biblioteca.html">Biblioteca</a></li>
+                <li><a href="./forum.html">Fórum</a></li>
+                <li><a href="./suporte.html">Suporte</a></li>
+                <li><a href="./cadastro-jogo.html">Cadastro de jogo</a></li>
+            </ul>
+        </nav>
+        <div class="site-header__actions">
+            <a href="./login.html" aria-current="page">Login</a>
+        </div>
+    </header>
+
+    <main id="conteudo">
+        <section class="section" aria-labelledby="login-heading">
+            <div class="section__inner">
+                <h1 id="login-heading" class="section__title">Entrar na Iara Games</h1>
+                <p class="section__lead">Entre com sua conta ou cadastre-se para acompanhar lançamentos e novidades.</p>
+
+                <div class="login-page__grid">
+                    <div class="form-card">
+                        <form class="form-card__form" action="#" method="post">
+                            <fieldset class="form-card__fieldset">
+                                <legend class="form-card__legend">Já tenho conta</legend>
+                                <div class="form-grid login-page__fields">
+                                    <label class="form-field form-field--full">
+                                        <span>E-mail</span>
+                                        <input type="email" name="login-email" placeholder="seu@email.com" required autocomplete="email">
+                                    </label>
+                                    <label class="form-field form-field--full">
+                                        <span>Senha</span>
+                                        <input type="password" name="login-senha" placeholder="Sua senha" required autocomplete="current-password">
+                                    </label>
+                                </div>
+                            </fieldset>
+                            <div class="form-card__actions login-page__actions">
+                                <button class="btn btn--primary" type="submit">Entrar</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="form-card">
+                        <form class="form-card__form" action="#" method="post">
+                            <fieldset class="form-card__fieldset">
+                                <legend class="form-card__legend">Criar conta</legend>
+                                <div class="form-grid login-page__fields">
+                                    <label class="form-field form-field--full">
+                                        <span>Nome completo</span>
+                                        <input type="text" name="cadastro-nome" placeholder="Seu nome" required autocomplete="name">
+                                    </label>
+                                    <label class="form-field form-field--full">
+                                        <span>E-mail</span>
+                                        <input type="email" name="cadastro-email" placeholder="seu@email.com" required autocomplete="email">
+                                    </label>
+                                    <label class="form-field form-field--full">
+                                        <span>Senha</span>
+                                        <input type="password" name="cadastro-senha" placeholder="Mínimo 8 caracteres" required autocomplete="new-password" minlength="8">
+                                    </label>
+                                </div>
+                            </fieldset>
+                            <div class="form-card__actions login-page__actions">
+                                <button class="btn btn--primary" type="submit">Criar conta</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <nav class="site-footer__social" aria-label="Redes sociais">
+            <ul>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter (X)</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">YouTube</a></li>
+            </ul>
+        </nav>
+        <p class="site-footer__tagline">Consumo digital · Visibilidade para quem cria aqui</p>
+        <p class="site-footer__copy">© Iara Games. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

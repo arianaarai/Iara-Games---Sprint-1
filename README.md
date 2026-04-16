@@ -60,6 +60,23 @@ O projeto foi construído com **CSS3 puro**, com variáveis (`:root`), grid e ca
 
 ---
 
+## Sprint 02 — páginas e formulários (protótipo)
+
+Fluxo em **HTML e CSS**; formulários com `action="#"` (sem back-end), foco em semântica, grid e usabilidade.
+
+| Página | Arquivo | Conteúdo |
+| :--- | :--- | :--- |
+| Home | `index.html` | Hero, lançamentos, ofertas, destaques |
+| Login | `pages/login.html` | Entrar e criar conta (dois blocos no mesmo fluxo) |
+| Suporte | `pages/suporte.html` | Feedback e contato para jogadores/visitantes |
+| Cadastro de jogo | `pages/cadastro-jogo.html` | Envio de dados do jogo por estúdios/desenvolvedores |
+
+Navegação global no cabeçalho; links para Loja, Biblioteca e Fórum apontam para páginas ainda não implementadas nesta entrega.
+
+> **Entrega FIAP:** persona, ESG, justificativas de UX/UI e evolução Sprint 01 → 02 devem constar no **PDF** e podem ser resumidas aqui no README para alinhar com o repositório público.
+
+---
+
 ## Estrutura de arquivos (raiz do projeto)
 
 ```
@@ -67,7 +84,10 @@ O projeto foi construído com **CSS3 puro**, com variáveis (`:root`), grid e ca
 │   ├── css/
 │   │   └── style.css       # Estilos globais e design tokens
 │   └── images/             # Imagens do hero, capas dos cards, etc.
-├── pages/                  # Loja, biblioteca, fórum, login, suporte (placeholders)
+├── pages/
+│   ├── login.html          # Entrar / criar conta
+│   ├── suporte.html        # Formulário de feedback
+│   └── cadastro-jogo.html  # Formulário de cadastro de jogo
 ├── 1-Ideias alternativas de design/   # Explorações e materiais de apoio
 ├── index.html              # Página inicial (HTML semântico)
 └── README.md

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de jogo — Iara Games</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+    <header class="site-header">
+        <div class="site-header__mark">
+            <a class="site-header__brand" href="../index.html">Iara Games</a>
+            <p class="site-header__tagline">Profundezas amazônicas · Indies nacionais</p>
+        </div>
+        <nav class="site-header__nav" aria-label="Principal">
+            <ul>
+                <li><a href="./loja.html">Loja</a></li>
+                <li><a href="./biblioteca.html">Biblioteca</a></li>
+                <li><a href="./forum.html">Fórum</a></li>
+                <li><a href="./suporte.html">Suporte</a></li>
+                <li><a href="./cadastro-jogo.html" aria-current="page">Cadastro de jogo</a></li>
+            </ul>
+        </nav>
+        <div class="site-header__actions">
+            <a href="./login.html">Login</a>
+        </div>
+    </header>
+
+    <main id="conteudo">
+        <section class="section section--page-intro" aria-labelledby="cadastro-heading">
+            <div class="section__inner section__inner--narrow">
+                <h1 id="cadastro-heading" class="section__title">Cadastro de jogo</h1>
+                <p class="section__lead">
+                    Canal para <strong>estúdios e desenvolvedores</strong> enviarem dados do jogo para análise na plataforma (protótipo sem back-end).
+                </p>
+                <p class="section__lead">
+                    Dúvidas ou feedback sobre o site? Use <a href="./suporte.html">Suporte e feedback</a>.
+                </p>
+            </div>
+        </section>
+
+        <section class="section section--form-follow" aria-labelledby="form-cadastro-heading">
+            <div class="section__inner">
+                <h2 id="form-cadastro-heading" class="visually-hidden">Formulário de cadastro de jogo</h2>
+                <div class="form-card">
+                    <form class="form-card__form" action="#" method="post">
+                        <fieldset class="form-card__fieldset">
+                            <legend class="form-card__legend">Contato do estúdio</legend>
+                            <div class="form-grid">
+                                <label class="form-field">
+                                    <span>E-mail do responsável</span>
+                                    <input type="email" name="email-estudio" placeholder="contato@estudio.com" required autocomplete="email">
+                                </label>
+                                <label class="form-field">
+                                    <span>Nome do estúdio ou autoria</span>
+                                    <input type="text" name="nome-estudio" placeholder="Estúdio / autoria" required autocomplete="organization">
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="form-card__fieldset">
+                            <legend class="form-card__legend">Sobre o jogo</legend>
+                            <div class="form-grid">
+                                <label class="form-field">
+                                    <span>Nome do jogo</span>
+                                    <input type="text" name="nome-jogo" placeholder="Nome do jogo" required>
+                                </label>
+                                <label class="form-field">
+                                    <span>Gênero</span>
+                                    <input type="text" name="genero-jogo" placeholder="Aventura, RPG, ação..." required>
+                                </label>
+                                <label class="form-field form-field--full">
+                                    <span>Descrição</span>
+                                    <textarea name="descricao-jogo" rows="4" placeholder="Breve descrição do jogo" required></textarea>
+                                </label>
+                                <label class="form-field">
+                                    <span>Link de página ou download</span>
+                                    <input type="url" name="link-jogo" placeholder="https://" required>
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <div class="form-card__actions">
+                            <button class="btn btn--primary" type="submit">Enviar cadastro</button>
+                            <button class="btn btn--secondary" type="reset">Limpar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <nav class="site-footer__social" aria-label="Redes sociais">
+            <ul>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter (X)</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">YouTube</a></li>
+            </ul>
+        </nav>
+        <p class="site-footer__tagline">Consumo digital · Visibilidade para quem cria aqui</p>
+        <p class="site-footer__copy">© Iara Games. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

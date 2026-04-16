@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suporte e feedback — Iara Games</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+    <header class="site-header">
+        <div class="site-header__mark">
+            <a class="site-header__brand" href="../index.html">Iara Games</a>
+            <p class="site-header__tagline">Profundezas amazônicas · Indies nacionais</p>
+        </div>
+        <nav class="site-header__nav" aria-label="Principal">
+            <ul>
+                <li><a href="./loja.html">Loja</a></li>
+                <li><a href="./biblioteca.html">Biblioteca</a></li>
+                <li><a href="./forum.html">Fórum</a></li>
+                <li><a href="./suporte.html" aria-current="page">Suporte</a></li>
+                <li><a href="./cadastro-jogo.html">Cadastro de jogo</a></li>
+            </ul>
+        </nav>
+        <div class="site-header__actions">
+            <a href="./login.html">Login</a>
+        </div>
+    </header>
+
+    <main id="conteudo">
+        <section class="section section--page-intro" aria-labelledby="suporte-heading">
+            <div class="section__inner section__inner--narrow">
+                <h1 id="suporte-heading" class="section__title">Suporte e feedback</h1>
+                <p class="section__lead">
+                    Avalie a plataforma, relate problemas ou envie sugestões. Este formulário é para <strong>jogadores e visitantes</strong>.
+                </p>
+                <p class="section__lead">
+                    É desenvolvedor e quer publicar um jogo? Use a página <a href="./cadastro-jogo.html">Cadastro de jogo</a>.
+                </p>
+            </div>
+        </section>
+
+        <section class="section section--form-follow" aria-labelledby="form-feedback-heading">
+            <div class="section__inner">
+                <h2 id="form-feedback-heading" class="visually-hidden">Formulário de feedback</h2>
+                <div class="form-card">
+                    <form class="form-card__form" action="#" method="post">
+                        <fieldset class="form-card__fieldset">
+                            <legend class="form-card__legend">Feedback</legend>
+
+                            <div class="form-grid">
+                                <label class="form-field">
+                                    <span>E-mail para identificação</span>
+                                    <input type="email" name="email-feedback" placeholder="seu@email.com" required autocomplete="email">
+                                </label>
+                                <label class="form-field">
+                                    <span>Tipo de jogo que você joga</span>
+                                    <select name="tipo-jogo-joga">
+                                        <option value="">Selecione</option>
+                                        <option value="aventura">Aventura</option>
+                                        <option value="rpg">RPG</option>
+                                        <option value="acao">Ação</option>
+                                        <option value="estrategia">Estratégia</option>
+                                        <option value="simulacao">Simulação</option>
+                                        <option value="puzzle">Puzzle</option>
+                                        <option value="esportes">Esportes</option>
+                                        <option value="corrida">Corrida</option>
+                                        <option value="outro">Outro</option>
+                                    </select>
+                                </label>
+                                <label class="form-field">
+                                    <span>Tipo de feedback</span>
+                                    <select name="tipo-feedback">
+                                        <option value="">Selecione</option>
+                                        <option value="sugestao">Sugestão</option>
+                                        <option value="bug">Relato de bug</option>
+                                        <option value="elogio">Elogio</option>
+                                        <option value="critica">Crítica</option>
+                                        <option value="duvida">Dúvida</option>
+                                        <option value="outro">Outro</option>
+                                    </select>
+                                </label>
+                                <label class="form-field">
+                                    <span>Nota para o site (1-5)</span>
+                                    <select name="nota-site">
+                                        <option value="">Selecione</option>
+                                        <option value="1">1 - Muito ruim</option>
+                                        <option value="2">2 - Ruim</option>
+                                        <option value="3">3 - Regular</option>
+                                        <option value="4">4 - Bom</option>
+                                        <option value="5">5 - Excelente</option>
+                                    </select>
+                                </label>
+                            </div>
+
+                            <label class="form-field form-field--full">
+                                <span>Descreva seu feedback</span>
+                                <textarea name="descricao-feedback" rows="5" placeholder="Conte-nos mais detalhes sobre sua experiência, sugestões ou problemas encontrados"></textarea>
+                            </label>
+                        </fieldset>
+
+                        <fieldset class="form-card__fieldset">
+                            <legend class="form-card__legend">Formas de contato</legend>
+
+                            <div class="form-grid">
+                                <label class="form-field">
+                                    <span>Telefone (opcional)</span>
+                                    <input type="tel" name="telefone" placeholder="(11) 99999-9999" autocomplete="tel">
+                                </label>
+                                <label class="form-field">
+                                    <span>WhatsApp (opcional)</span>
+                                    <input type="tel" name="whatsapp" placeholder="(11) 99999-9999" autocomplete="tel">
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <div class="form-card__actions">
+                            <button class="btn btn--primary" type="submit">Enviar feedback</button>
+                            <button class="btn btn--secondary" type="reset">Limpar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <nav class="site-footer__social" aria-label="Redes sociais">
+            <ul>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter (X)</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">YouTube</a></li>
+            </ul>
+        </nav>
+        <p class="site-footer__tagline">Consumo digital · Visibilidade para quem cria aqui</p>
+        <p class="site-footer__copy">© Iara Games. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
