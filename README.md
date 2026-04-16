@@ -1,9 +1,10 @@
-# Iara Games - O Coração dos jogos Brasileiro
+# Iara Games — O coração dos jogos brasileiros
 
-> **Status:** Em deselvolvimento  
+> **FIAP · Etapa 2 · Sprint 02**  
+> **Status:** Em desenvolvimento  
 > **Conceito:** Uma plataforma de e-commerce mística e moderna, focada em dar visibilidade aos jogos produzidos no Brasil.
 
-A Iara Games não é apenas uma loja; é uma imersão nas águas do desenvolvimento nacional. O projeto utiliza uma estética "Dark Mode" profunda, inspirada nas lendas amazônicas, equilibrada com tecnologias modernas de estilização.
+A Iara Games não é apenas uma loja; é uma imersão nas águas do desenvolvimento nacional. O projeto utiliza uma estética *dark mode* profunda, inspirada nas lendas amazônicas, equilibrada com CSS moderno e identidade visual consolidada na Sprint 02.
 
 ## Pesquisa de plataformas
 
@@ -23,58 +24,57 @@ Plataforma brasileira de venda de jogos digitais. Inspirou a linguagem visual vo
 
 ---
 
-## Identidade Visual e Design System
+## Identidade visual e design system
 
 A escolha das cores e fontes foi estrategicamente pensada para unir **acessibilidade**, **modernidade** e **folclore**.
 
-### Paleta de Cores
+### Paleta de cores
 
-| Cor | Hex | Função de Design |
+| Cor | Hex | Função de design |
 | :--- | :--- | :--- |
 | **Texto** | `#e2e8f0` | Leitura suave e sem fadiga visual. |
-| **Verde Marinho** | `#67e8f9` | Destaque, títulos e estados de hover (brilho místico). |
-| **Preto Profundo** | `#020617` | Fundo principal (profundidade dos rios). |
-| **Verde Musgo** | `#22c55e` | Call to Action (CTA), preços e elementos de sucesso. |
+| **Verde marinho** | `#67e8f9` | Destaque, títulos e estados de hover (brilho místico). |
+| **Preto profundo** | `#020617` | Fundo principal (profundidade dos rios). |
+| **Verde musgo** | `#22c55e` | Call to action (CTA), preços e elementos de sucesso. |
 | **Diamante** | `#0c8b8b` | Gradientes e transições de profundidade. |
-| **Vidro (Alpha)** | `#ffffff1a` | Efeito de Glassmorphism (transparência de 10%). |
+| **Vidro (alpha)** | `#ffffff1a` | Camada translúcida do glassmorphism (≈10%). |
 
-### Tipografia e Acessibilidade
+### Tipografia e acessibilidade
 
-O projeto utiliza um sistema de fontes híbrido para garantir que a loja seja inclusiva:
+O projeto utiliza um sistema de fontes híbrido para garantir leitura e hierarquia:
 
-* **Títulos (`Poppins`):** Uma fonte geométrica e vibrante que traz o peso "Gamer" e moderno para a marca.
-* **Corpo de Texto (`Atkinson Hyperlegible`):** Desenvolvida pelo *Braille Institute*, esta fonte foca na distinção clara de caracteres, garantindo que descrições de jogos e preços sejam lidos com perfeição por qualquer usuário.
-
----
-
-## Destaques Técnicos do CSS
-
-O projeto foi construído com **CSS3 Puro**, utilizando técnicas avançadas para performance e estética:
-
-* **Glassmorphism:** Uso de `backdrop-filter: blur(10px)` nos cards para simular elementos flutuando sobre a água.
-* **Layout Responsivo:** Implementação de **CSS Grid** (`auto-fit`) que organiza os jogos automaticamente conforme o tamanho da tela.
-* **Interatividade:** Microinterações de `hover` com `transform: scale` e `box-shadow` que dão feedback imediato ao usuário.
-* **Mobile-First ready:** Media queries configuradas para adaptar títulos gigantes (80px) em telas de smartphones, mantendo a hierarquia visual.
+* **Títulos de impacto (`Russo One`):** marca, hero e títulos de seção — presença forte e identidade *gamer*.
+* **Subtítulos e interface (`Poppins`):** navegação, subtítulos, botões e preços — geometria moderna e leitura clara em UI.
+* **Corpo de texto (`Atkinson Hyperlegible`):** desenvolvida pelo *Braille Institute*, com distinção clara de caracteres para descrições e leitura prolongada.
 
 ---
 
-## Estrutura de Arquivos
+## Destaques técnicos do CSS
+
+O projeto foi construído com **CSS3 puro**, com variáveis (`:root`), grid e camadas visuais:
+
+* **Glassmorphism:** `backdrop-filter: blur(10px)` (e `-webkit-backdrop-filter` para compatibilidade), combinado a fundos translúcidos em **cards**, **cabeçalho fixo**, **painel do hero** e **rodapé**, simulando profundidade e leitura sobre o fundo.
+* **Layout responsivo:** **CSS Grid** com `auto-fit` / `minmax` para lançamentos e ofertas; **Flexbox** no cabeçalho e em blocos de ação.
+* **Interatividade:** microinterações em `hover` com `transform`, `translateY` e `box-shadow` (*glow*) para feedback imediato; estados de foco visíveis para navegação por teclado.
+* **Responsividade:** *media queries* ajustam padding, grid e tamanhos de título em **rem** (incluindo telas estreitas), mantendo hierarquia sem depender de valores fixos em px para títulos.
+
+---
+
+## Estrutura de arquivos (raiz do projeto)
 
 ```
 ├── assets/
-│   └── css/
-│       └── style.css
-├── images/
-│   └── lagoa mistica.png   # Background principal do Hero
-├── videos
-├── pages/
-│   ├── biblioteca.html
-│   ├── forum.html
-│   ├── login.html
-│   ├── loja.html
-│   └── suporte.html
-├── index.html              # Estrutura semântica do site
-├── style.css               # Estilização modular com Variáveis CSS
-└── README.md               # Documentação do projeto
-
+│   ├── css/
+│   │   └── style.css       # Estilos globais e design tokens
+│   └── images/             # Imagens do hero, capas dos cards, etc.
+├── pages/                  # Loja, biblioteca, fórum, login, suporte (placeholders)
+├── 1-Ideias alternativas de design/   # Explorações e materiais de apoio
+├── index.html              # Página inicial (HTML semântico)
+└── README.md
 ```
+
+---
+
+## Repositório
+
+Desenvolvimento e entregas atualizadas: **[github.com/arianaarai/Iara-Games---Sprint-1](https://github.com/arianaarai/Iara-Games---Sprint-1)** (fork de continuidade do projeto em grupo).
