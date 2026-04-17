@@ -73,15 +73,13 @@ Fluxo em **HTML e CSS**; formulários com `action="#"` (sem back-end), foco em s
 
 Navegação global no cabeçalho; links para Loja, Biblioteca e Fórum apontam para páginas ainda não implementadas nesta entrega.
 
-> **Entrega FIAP:** persona, ESG, justificativas de UX/UI e evolução Sprint 01 → 02 constam no arquivo **[`docs/entrega-sprint-02.md`](docs/entrega-sprint-02.md)** (texto pronto para copiar ao PDF). O README resume o escopo técnico; o documento em `docs/` alinha narrativa e código.
+> **Entrega FIAP:** persona, ESG, justificativas de UX/UI e evolução Sprint 01 → 02 devem constar no **PDF** enviado na plataforma; este README resume o escopo técnico do repositório.
 
 ---
 
 ## Estrutura de arquivos (raiz do projeto)
 
 ```
-├── docs/
-│   └── entrega-sprint-02.md   # Texto da entrega (persona, ESG, UI/UX, fluxos)
 ├── assets/
 │   ├── css/
 │   │   └── style.css       # Estilos globais e design tokens
